@@ -9,7 +9,8 @@ class Rental:
     @property
     def cost(self):
         base_cost = 4.50
-        overdue_days = (self.return_date - self.rental_date).days
+        overdue_days = (self.return_date - self.rental_date).days - self.num_rental_days
+        print(overdue_days)
         penalty_cost = 3.35 * overdue_days
         total_cost = base_cost + penalty_cost
         return round(total_cost, 2)
