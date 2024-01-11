@@ -1,5 +1,7 @@
 from rental import Rental
 from datetime import datetime
+
+
 def init_books():
     books = {
         "LOTR 1": [],
@@ -8,11 +10,13 @@ def init_books():
     }
     return books
 
+
 def read_rental():
     rental_date = read_date("Enter rental date (dd.mm.yyyy): ")
     num_rental_days = read_int("Enter number of rental days: ")
     return_date = read_date("Enter return date (dd.mm.yyyy): ")
     return Rental(rental_date, return_date, num_rental_days)
+
 
 def add_rental(books):
     book_name = input("Enter the book name: ")
@@ -27,6 +31,7 @@ def add_rental(books):
     else:
         print("Book not found in the library.")
 
+
 def show_balance(books):
     for book, rentals in books.items():
         print(f"Statement for {book}")
@@ -38,6 +43,7 @@ def show_balance(books):
 
         print(f"Total: CHF {round(total_cost, 2)}")
 
+
 def read_int(prompt):
     while True:
         try:
@@ -48,6 +54,7 @@ def read_int(prompt):
         except ValueError:
             print("Please enter a positive number.")
 
+
 def read_date(prompt):
     while True:
         try:
@@ -56,6 +63,7 @@ def read_date(prompt):
             return rental_date
         except ValueError:
             print("Please enter a valid date.")
+
 
 def main():
     books = init_books()
@@ -75,6 +83,6 @@ def main():
         else:
             print("Invalid choice. Please choose 1, 2, or 3.")
 
+
 if __name__ == "__main__":
-    read_date('adsfasdf')
-    #main()
+    main()
