@@ -7,14 +7,14 @@ from datetime import datetime
 def sample_books_filled():
     books = {
         "LOTR 1": [
-            Rental(datetime(2023, 1, 5), datetime(2023, 3, 6), 60),
+            Rental(datetime(2023, 1, 5), datetime(2023, 3, 6), 5),
         ],
         "LOTR 2": [
-            Rental(datetime(2023, 1, 6), datetime(2023, 2, 23), 49),
+            Rental(datetime(2023, 1, 6), datetime(2023, 2, 23), 10),
         ],
         "LOTR 3": [
-            Rental(datetime(2023, 1, 6), datetime(2023, 2, 23), 49),
-            Rental(datetime(2023, 1, 6), datetime(2023, 2, 23), 49),
+            Rental(datetime(2023, 1, 6), datetime(2023, 2, 23), 10),
+            Rental(datetime(2023, 1, 6), datetime(2023, 2, 23), 10),
         ],
     }
     return books
@@ -40,15 +40,15 @@ def test_show_balance(sample_books_filled, capsys):
     captured = capsys.readouterr()
 
     expected_output = """Statement for LOTR 1
-  - 05.01.2023: CHF 205.5
-Total: CHF 205.5
+  - 05.01.2023: CHF 188.75
+Total: CHF 188.75
 Statement for LOTR 2
-  - 06.01.2023: CHF 165.3
-Total: CHF 165.3
+  - 06.01.2023: CHF 131.8
+Total: CHF 131.8
 Statement for LOTR 3
-  - 06.01.2023: CHF 165.3
-  - 06.01.2023: CHF 165.3
-Total: CHF 330.6
+  - 06.01.2023: CHF 131.8
+  - 06.01.2023: CHF 131.8
+Total: CHF 263.6
 """
     assert captured.out == expected_output
 
