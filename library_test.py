@@ -98,12 +98,12 @@ def test_read_int_valid_input(monkeypatch):
     assert value == 5
 
 def test_read_int_invalid_input(monkeypatch, capsys):
-    inputs = iter(['abs','-5','1'])
+    inputs = iter(['abs','-5','2','1'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     value = read_int("Enter a number: ", 0, 1)
     captured = capsys.readouterr()
     assert value == 1  # Should return 0 for invalid input
-    assert captured.out == "Please, enter a whole number!\nPlease, enter a number greater than or equal to 0\n"
+    assert captured.out == "Please, enter a whole number!\nPlease, enter a number greater than or equal to 0\nPlease, enter a number less than or equal to 1\n"
 
 def test_read_date_valid_input(monkeypatch, capsys):
     # Mocking user input with valid date format
