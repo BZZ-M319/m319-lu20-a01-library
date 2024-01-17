@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime, timedelta
+
+
 @dataclass
 class Rental:
     rental_date: datetime

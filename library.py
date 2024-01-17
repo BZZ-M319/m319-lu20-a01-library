@@ -43,7 +43,7 @@ def show_balance(books):
         print(f'Total: CHF {round(total_cost, 2)}')
 
 
-def read_int(prompt, minimum = None, maximum = None):
+def read_int(prompt, minimum=None, maximum=None):
     while True:
         try:
             num = int(input(prompt))
@@ -77,7 +77,7 @@ def main():
         print('1. Add Rental')
         print('2. Show Balances')
         print('3. Exit')
-        choice = read_int('Enter your choice (1/2/3): ',1,3)
+        choice = read_int('Enter your choice (1/2/3): ', 1, 3)
 
         if choice == 1:
             add_rental(books)
