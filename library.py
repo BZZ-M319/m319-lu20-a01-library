@@ -1,3 +1,6 @@
+#
+# Nach dem Parameter steht ein Doppelpunkt mit einem Datentyp, dieser ist ein Indikator für Python was als Parameter zu erwarten ist, dies können sie fürs Erste ignorieren.
+#
 def init_books():
     pass
 
@@ -6,19 +9,34 @@ def read_rental():
     pass
 
 
-def add_rental(books):
+def add_rental(books: dict):
+    """
+
+    :param books: typ Dictionary
+    :return:
+    """
     print('Here is the book rental part')
 
 
-def show_balance(books):
+def show_balance(books: dict):
+    """
+    shows the balance
+    :param books:
+    :return:
+    """
     print('Print the book balance here')
 
 
-def read_int(prompt, minimum, maximum):
+def read_int(prompt: str, minimum: int, maximum: int):
     return int(input(prompt))  # Placeholder to let main run. Delete when doing the aassignment
 
 
 def read_date(prompt):
+    """
+
+    :param prompt:
+    :return:
+    """
     pass
 
 
