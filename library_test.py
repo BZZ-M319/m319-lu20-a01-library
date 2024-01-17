@@ -50,7 +50,7 @@ def test_init_books(empty_books):
     assert books == empty_books
 
 def test_read_rental(monkeypatch):
-    inputs = iter(['05.01.2023','60','06.03.2023','n'])
+    inputs = iter(['05.01.2023','60','06.03.2023'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     rental = read_rental()
     assert rental.rental_date == datetime(2023, 1, 5)
