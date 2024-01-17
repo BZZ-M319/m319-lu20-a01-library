@@ -27,14 +27,6 @@ def empty_books():
         "LOTR 3": [],
     }
 
-@pytest.fixture
-def sample_books():
-    books = {
-        "LOTR 1": [],
-        "LOTR 2": [],
-        "LOTR 3": [],
-    }
-    return books
 def test_show_balance(sample_books_filled, capsys):
     show_balance(sample_books_filled)
     captured = capsys.readouterr()
@@ -79,6 +71,25 @@ def test_add_rental_existing_books(sample_books_filled, monkeypatch):
     assert len(sample_books_filled["LOTR 1"]) == 2
     assert len(sample_books_filled["LOTR 2"]) == 1
     assert len(sample_books_filled["LOTR 3"]) == 2
+
+def test_add_rental_invalid_book_name(sample_books_filled, monkeypatch):
+    # Simulating user inputs: first an invalid book, then a valid one with rental details
+    inputs = iter(['Invalid Book', 'LOTR 1', '07.01.2023', '30', '08.03.2023', 'n'])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+
+    add_rental(sample_books_filled)
+    # Asserting that the rental was added to the valid book
+    assert len(sample_books_filled["LOTR 1"]) == 2
+
+def test_add_rental_multiple_rentals(sample_books_filled, monkeypatch):
+    # Simulating user inputs for adding multiple rentals to the same book
+    inputs = iter(['LOTR 1', '08.01.2023', '20', '28.01.2023', 'y', 'LOTR 1', '09.01.2023', '15', '24.01.2023', 'n'])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+
+    add_rental(sample_books_filled)
+    # Asserting that multiple rentals have been added to the same book
+    assert len(sample_books_filled["LOTR 1"]) == 3
+
 
 def test_read_int_valid_input(monkeypatch):
     inputs = iter(['5'])
