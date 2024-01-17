@@ -1,5 +1,7 @@
+import random
+
 from rental import Rental
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 def init_books():
@@ -12,56 +14,23 @@ def init_books():
 
 
 def read_rental():
-    rental_date = read_date("Enter rental date (dd.mm.yyyy): ")
-    num_rental_days = read_int("Enter number of rental days: ")
-    return_date = read_date("Enter return date (dd.mm.yyyy): ")
-    return Rental(rental_date, return_date, num_rental_days)
+    pass
 
 
 def add_rental(books):
-    while True:
-        book_name = input("Enter the book name: ")
-        if book_name in books:
-            rental = read_rental()
-            books[book_name].append(rental)
-            choice = input("Do you want to add another rental? (y/n): ").strip().lower()
-            if choice != 'y':
-                break
-    else:
-        print("Book not found in the library.")
+    print('Here is the book rental part')
 
 
 def show_balance(books):
-    for book, rentals in books.items():
-        print(f"Statement for {book}")
-        total_cost = 0
-
-        for rental in rentals:
-            print(f"  - {rental.rental_date.strftime('%d.%m.%Y')}: CHF {rental.cost}")
-            total_cost += rental.cost
-
-        print(f"Total: CHF {round(total_cost, 2)}")
+    print('Print the book balance here')
 
 
 def read_int(prompt):
-    while True:
-        try:
-            value = int(input(prompt))
-            if value <= 0:
-                raise ValueError
-            return value
-        except ValueError:
-            print("Please enter a positive number.")
+    pass
 
 
 def read_date(prompt):
-    while True:
-        try:
-            date_str = input(prompt)
-            rental_date = datetime.strptime(date_str, "%d.%m.%Y")
-            return rental_date
-        except ValueError:
-            print("Please enter a valid date.")
+    pass
 
 
 def main():
