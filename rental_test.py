@@ -13,6 +13,7 @@ def test_attribute_assignments():
     assert rental.return_date == return_date
     assert rental.num_rental_days == num_rental_days
 
+
 # Test for cost calculation with no overdue
 def test_cost_no_overdue():
     rental_date = datetime(2022, 1, 1)
@@ -21,6 +22,7 @@ def test_cost_no_overdue():
 
     rental = Rental(rental_date, return_date, num_rental_days)
     assert rental.cost == 4.50
+
 
 # Test for cost calculation with overdue
 def test_cost_with_overdue():

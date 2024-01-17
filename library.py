@@ -26,7 +26,7 @@ def show_balance(books):
 
 
 def read_int(prompt, minimum, maximum):
-    return int(input(prompt)) #Placeholder to let main run. Delete when doing the aassignment
+    return int(input(prompt))  # Placeholder to let main run. Delete when doing the aassignment
 
 
 def read_date(prompt):
@@ -40,7 +40,7 @@ def main():
         print('1. Add Rental')
         print('2. Show Balances')
         print('3. Exit')
-        choice = read_int('Enter your choice (1/2/3): ',1,3)
+        choice = read_int('Enter your choice (1/2/3): ', 1, 3)
 
         if choice == 1:
             add_rental(books)
@@ -48,6 +48,7 @@ def main():
             show_balance(books)
         elif choice == 3:
             break
+
 
 if __name__ == '__main__':
     main()
