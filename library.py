@@ -6,15 +6,15 @@ def read_rental():
     pass
 
 
-def add_rental(books):
+def add_rental(books: list):
     print('Here is the book rental part')
 
 
-def show_balance(books):
+def show_balance(books: list):
     print('Print the book balance here')
 
 
-def read_int(prompt, minimum, maximum):
+def read_int(prompt: str, minimum: float, maximum: float):
     return int(input(prompt))  # Placeholder to let main run. Delete when doing the aassignment
 
 
