@@ -1,16 +1,5 @@
-import random
-
-from rental import Rental
-from datetime import datetime, timedelta
-
-
 def init_books():
-    books = {
-        'LOTR 1': [],
-        'LOTR 2': [],
-        'LOTR 3': [],
-    }
-    return books
+    pass
 
 
 def read_rental():
