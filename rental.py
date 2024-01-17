@@ -4,12 +4,19 @@ from datetime import datetime, timedelta
 
 @dataclass
 class Rental:
+    """
+    the rental data for a book
+    """
     rental_date: datetime
     return_date: datetime
     num_rental_days: int
 
     @property
     def cost(self):
+        """
+        calculates the cost of this rental
+        :return:
+        """
         base_cost = 4.50
         overdue_days = (self.return_date - self.rental_date).days - self.num_rental_days
         penalty_cost = 3.35 * overdue_days

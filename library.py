@@ -3,6 +3,10 @@ from datetime import datetime
 
 
 def init_books():
+    """
+    initialize the dictionary with some books
+    :return: books dictionary
+    """
     books = {
         'LOTR 1': [],
         'LOTR 2': [],
@@ -12,6 +16,10 @@ def init_books():
 
 
 def read_rental():
+    """
+    asks the user to input the data for a book rental
+    :return:
+    """
     rental_date = read_date('Enter rental date (dd.mm.yyyy): ')
     num_rental_days = read_int('Enter number of rental days: ', 1, 99)
     return_date = read_date('Enter return date (dd.mm.yyyy): ')
@@ -19,6 +27,11 @@ def read_rental():
 
 
 def add_rental(books):
+    """
+    adds the rentals to the book dictionary
+    :param books:
+    :return:
+    """
     while True:
         book_name = input('Enter the book name: ')
         if book_name in books:
@@ -32,6 +45,11 @@ def add_rental(books):
 
 
 def show_balance(books):
+    """
+    shows the balance of all the rentals
+    :param books:
+    :return: None
+    """
     for book, rentals in books.items():
         print(f'Statement for {book}')
         total_cost = 0
@@ -44,6 +62,13 @@ def show_balance(books):
 
 
 def read_int(prompt, minimum=None, maximum=None):
+    """
+    asks the user to enter a whole number between minimum and maximum
+    :param prompt:
+    :param minimum:
+    :param maximum:
+    :return: the number
+    """
     while True:
         try:
             num = int(input(prompt))
@@ -61,6 +86,11 @@ def read_int(prompt, minimum=None, maximum=None):
 
 
 def read_date(prompt):
+    """
+    asks the user to input a datetime
+    :param prompt:
+    :return: the datetime
+    """
     while True:
         try:
             date_str = input(prompt)
@@ -71,6 +101,10 @@ def read_date(prompt):
 
 
 def main():
+    """
+    manage the book rentals at a library
+    :return: None
+    """
     books = init_books()
     while True:
         print('\nLibrary Management System')
