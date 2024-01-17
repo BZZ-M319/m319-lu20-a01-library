@@ -6,9 +6,9 @@ from datetime import datetime, timedelta
 
 def init_books():
     books = {
-        "LOTR 1": [],
-        "LOTR 2": [],
-        "LOTR 3": [],
+        'LOTR 1': [],
+        'LOTR 2': [],
+        'LOTR 3': [],
     }
     return books
 
@@ -36,10 +36,10 @@ def read_date(prompt):
 def main():
     books = init_books()
     while True:
-        print("\nLibrary Management System")
-        print("1. Add Rental")
-        print("2. Show Balances")
-        print("3. Exit")
+        print('\nLibrary Management System')
+        print('1. Add Rental')
+        print('2. Show Balances')
+        print('3. Exit')
         choice = read_int('Enter your choice (1/2/3): ',1,3)
 
         if choice == 1:
@@ -49,5 +49,5 @@ def main():
         elif choice == 3:
             break
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
