@@ -19,7 +19,7 @@ def read_int(prompt, minimum, maximum):
 
 
 def read_date(prompt):
-    pass
+    return None
 
 
 def main():
