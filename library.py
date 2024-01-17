@@ -13,7 +13,7 @@ def init_books():
 
 def read_rental():
     rental_date = read_date("Enter rental date (dd.mm.yyyy): ")
-    num_rental_days = read_int("Enter number of rental days: ")
+    num_rental_days = read_int("Enter number of rental days: ",0)
     return_date = read_date("Enter return date (dd.mm.yyyy): ")
     return Rental(rental_date, return_date, num_rental_days)
 
