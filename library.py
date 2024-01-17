@@ -40,8 +40,8 @@ def add_rental(books):
             choice = input('Do you want to add another rental? (y/n): ').strip().lower()
             if choice != 'y':
                 break
-    else:
-        print('Book not found in the library.')
+        else:
+            print('Book not found in the library.')
 
 
 def show_balance(books):
