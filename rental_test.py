@@ -1,5 +1,5 @@
 from rental import Rental
-from datetime import datetime, timedelta
+from datetime import datetime
 
 
 def test_attribute_assignments():
