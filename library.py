@@ -19,12 +19,11 @@ def read_rental():
 
 
 def add_rental(books):
-    book_name = input("Enter the book name: ")
-    if book_name in books:
-        rental = read_rental()
-        books[book_name].append(rental)
-
-        while True:
+    while True:
+        book_name = input("Enter the book name: ")
+        if book_name in books:
+            rental = read_rental()
+            books[book_name].append(rental)
             choice = input("Do you want to add another rental? (y/n): ").strip().lower()
             if choice != 'y':
                 break
