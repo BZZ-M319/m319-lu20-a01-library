@@ -11,7 +11,6 @@ def test_attribute_assignments():
 
     expected_datetimes = [rental_date, return_date]
     expected_ints = [num_rental_days]
-
     datetimes_found = []
     ints_found = []
 
