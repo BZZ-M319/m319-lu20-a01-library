@@ -56,10 +56,16 @@ def test_init_books(empty_books):
 def test_read_rental(monkeypatch):
     inputs = iter(['05.01.2023', '60', '06.03.2023'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+
     rental = read_rental()
-    assert rental.rental_date == datetime(2023, 1, 5)
-    assert rental.num_rental_days == 60
-    assert rental.return_date == datetime(2023, 3, 6)
+
+    expected_values = [datetime(2023, 1, 5), datetime(2023, 3, 6), 60]
+    actual_values = list(rental.__dict__.values())
+
+    assert len(expected_values) == len(actual_values), "Anzahl der Attribute stimmt nicht überein."
+
+    for expected, actual in zip(expected_values, actual_values):
+        assert expected == actual, f"Erwarteter Wert {expected} stimmt nicht mit tatsächlichem Wert {actual} überein."
 
 
 def test_add_rental_empty_books(empty_books, monkeypatch):
